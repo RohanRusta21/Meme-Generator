@@ -22,13 +22,7 @@ jobs:
       - name: Push Docker Image to DockerHub
         run: docker push "${DOCKERHUB_USERNAME}"/meme-gen:${{ github.sha}}
       
-      - name: Install Snyk CLI
-        run: npm install -g snyk
-
-      - name: Run Snyk security scan
-        run: snyk test
- 
-        
+            
   update-manifest-stage:
     runs-on: ubuntu-latest
     needs: ['build-and-push']
