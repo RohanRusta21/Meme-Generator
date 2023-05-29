@@ -21,6 +21,18 @@ jobs:
         run: echo "${DOCKERHUB_TOKEN}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
       - name: Push Docker Image to DockerHub
         run: docker push "${DOCKERHUB_USERNAME}"/meme-gen:${{ github.sha}}
+      
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Run Snyk security scan
+        run: snyk test --all-projects --all-sub-projects --json > snyk-results.json
+
+      - name: Upload Snyk results
+        uses: actions/upload-artifact@v2
+        with:
+          name: snyk-results
+          path: snyk-results.json  
         
   update-manifest-stage:
     runs-on: ubuntu-latest
