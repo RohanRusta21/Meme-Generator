@@ -26,13 +26,8 @@ jobs:
         run: npm install -g snyk
 
       - name: Run Snyk security scan
-        run: snyk test --json > snyk-results.json
-
-      - name: Upload Snyk results
-        uses: actions/upload-artifact@v2
-        with:
-          name: snyk-results
-          path: snyk-results.json  
+        run: snyk test
+ 
         
   update-manifest-stage:
     runs-on: ubuntu-latest
