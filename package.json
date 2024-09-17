@@ -5,7 +5,7 @@
   "homepage": "https://prabhkaur301.github.io/Meme-Generator/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "dom-to-image": "^2.6.0",
